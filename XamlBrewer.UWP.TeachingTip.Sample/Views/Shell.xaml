@@ -91,14 +91,15 @@
                 </Grid>
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid Background="{StaticResource PageBackgroundBrush}">
+                <Grid x:Name="ContentGrid"
+                      Background="{StaticResource PageBackgroundBrush}">
                     <!-- Background -->
                     <Image Source="ms-appx:///Assets/background.png"
                            Stretch="Uniform"
                            VerticalAlignment="Bottom"
                            HorizontalAlignment="Center"
-                           Opacity=".5" 
-                           Margin="48 34"/>
+                           Opacity=".25"
+                           Margin="48 34" />
 
                     <!-- Logo -->
                     <Viewbox Grid.Row="2"
