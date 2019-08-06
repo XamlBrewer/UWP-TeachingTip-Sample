@@ -38,7 +38,7 @@
                    FontSize="20"
                    Grid.Row="1"
                    Margin="0">
-            <Run>This app demostrates the WinUI TeachingTip control.</Run>
+            <Run>This app demonstrates the WinUI TeachingTip control.</Run>
         </TextBlock>
     </Grid>
 </Page>
