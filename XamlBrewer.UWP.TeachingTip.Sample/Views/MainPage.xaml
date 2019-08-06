@@ -1,0 +1,53 @@
+﻿<Page x:Class="XamlBrewer.Uwp.TeachingTip.Sample.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:XamlBrewer.Uwp.TeachingTip.Sample"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+      mc:Ignorable="d"
+      Foreground="{StaticResource PageForegroundBrush}">
+
+    <Grid Background="Transparent"
+          Padding="48 34 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="74" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="74" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Foreground="{StaticResource PageTitleBrush}"
+                   FontSize="48"
+                   FontWeight="Light"
+                   HorizontalAlignment="Left"
+                   Margin="6 0 0 0"
+                   TextLineBounds="TrimToCapHeight"
+                   FontFamily="Segoe UI">
+                <Run Text="Main" />
+        </TextBlock>
+        <Path Data="{StaticResource CalloutIcon}"
+              Fill="{StaticResource PageTitleBrush}"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Right"
+              Height="48"
+              Width="48"
+              Margin="0 0 20 0"
+              Stretch="Uniform" />
+        <Button x:Name="HelloButton"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Grid.Row="1">Hello</Button>
+        <controls:TeachingTip x:Name="TheTeachingTip"
+                              Title="Hello"
+                              Subtitle="World"
+                              IsOpen="True"
+                              Target="{x:Bind HelloButton}"
+                              PreferredPlacement="LeftBottom"
+                              IsLightDismissEnabled="False"
+                              BorderThickness=".5"
+                              BorderBrush="{StaticResource DefaultAccentColor}">
+
+        </controls:TeachingTip>
+    </Grid>
+</Page>
