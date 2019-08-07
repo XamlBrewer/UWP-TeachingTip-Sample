@@ -98,7 +98,7 @@
                            Stretch="Uniform"
                            VerticalAlignment="Bottom"
                            HorizontalAlignment="Center"
-                           Opacity=".25"
+                           Opacity=".35"
                            Margin="48 34" />
 
                     <!-- Logo -->

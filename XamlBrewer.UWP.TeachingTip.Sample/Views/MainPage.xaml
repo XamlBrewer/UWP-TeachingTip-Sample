@@ -47,7 +47,12 @@
                               IsLightDismissEnabled="False"
                               BorderThickness=".5"
                               BorderBrush="{StaticResource DefaultAccentColor}">
-
+            <!--<controls:TeachingTip.HeroContent>
+                <Image Source="/Assets/MindFlayer.jpg" />
+            </controls:TeachingTip.HeroContent>-->
+            <controls:TeachingTip.IconSource>
+                <controls:SymbolIconSource Symbol="Message" />
+            </controls:TeachingTip.IconSource>
         </controls:TeachingTip>
     </Grid>
 </Page>

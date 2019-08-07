@@ -1,16 +1,13 @@
-﻿using System.Diagnostics;
-using Mvvm;
+﻿using Mvvm;
+using Mvvm.Services;
+using System.Diagnostics;
 using System.Linq;
-using Windows.UI;
+using Windows.ApplicationModel.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
-using Mvvm.Services;
-using Windows.UI.ViewManagement;
-using Windows.ApplicationModel.Core;
-using Windows.UI.Xaml.Media;
-using System;
 
 namespace XamlBrewer.Uwp.TeachingTip.Sample
 {
@@ -18,7 +15,7 @@ namespace XamlBrewer.Uwp.TeachingTip.Sample
     {
         public Shell()
         {
-            // Blends the app into the title bar.
+            // Blend the app into the title bar.
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
 
@@ -36,32 +33,10 @@ namespace XamlBrewer.Uwp.TeachingTip.Sample
             Loaded += Shell_Loaded;
         }
 
-        private Microsoft.UI.Xaml.Controls.TeachingTip _teachingTip;
-
         private void Shell_Loaded(object sender, RoutedEventArgs e)
         {
-            var mainPageMenu = Menu.ContainerFromIndex(1) as ListViewItem;
-            _teachingTip = new Microsoft.UI.Xaml.Controls.TeachingTip
-            {
-                Target = mainPageMenu,
-                Title = "Welcome",
-                Subtitle = "This is where the action is.",
-                PreferredPlacement = Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.BottomRight,
-                IsOpen = true,
-                BorderThickness = new Thickness(.5),
-                BorderBrush = new SolidColorBrush(Colors.DarkRed)
-            };
-            ContentGrid.Children.Add(_teachingTip);
-            var timer = new DispatcherTimer();
-            timer.Tick += Timer_Tick;
-            timer.Interval = TimeSpan.FromSeconds(5);
-            timer.Start();
-        }
-
-        private void Timer_Tick(object sender, object e)
-        {
-            (sender as DispatcherTimer).Stop();
-            _teachingTip.IsOpen = false;
+            // Display the TeachingTip for the Main menu item.
+            ContextualInformation.DisplayMainMenuTip();
         }
 
         /// <summary>
