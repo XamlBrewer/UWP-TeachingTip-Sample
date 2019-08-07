@@ -54,6 +54,11 @@ namespace Mvvm.Services
         {
             (sender as DispatcherTimer).Stop();
 
+            if (_mainMenuTeachingTip == null)
+            {
+                return;
+            }
+
             // Close and cleanup the TeachingTip
             _mainMenuTeachingTip.IsOpen = false;
             (_mainMenuTeachingTip.Parent as Grid).Children.Remove(_mainMenuTeachingTip);

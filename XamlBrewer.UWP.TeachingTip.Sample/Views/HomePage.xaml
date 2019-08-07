@@ -33,12 +33,19 @@
               Width="48"
               Margin="0 0 20 0"
               Stretch="Uniform" />
-        <TextBlock TextWrapping="WrapWholeWords"
-                   Foreground="{StaticResource PageForegroundBrush}"
-                   FontSize="20"
-                   Grid.Row="1"
-                   Margin="0">
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="1">
+            <Button Click="ReplayButton_Click"
+                    Margin="0 0 20 0"
+                    Padding="10 5"
+                    VerticalAlignment="Top">Replay</Button>
+            <TextBlock TextWrapping="WrapWholeWords"
+                       Foreground="{StaticResource PageForegroundBrush}"
+                       FontSize="20"
+                       Margin="0">
             <Run>This app demonstrates the WinUI TeachingTip control.</Run>
-        </TextBlock>
+            </TextBlock>
+        </StackPanel>
+
     </Grid>
 </Page>
