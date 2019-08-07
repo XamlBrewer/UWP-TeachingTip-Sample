@@ -50,7 +50,10 @@
             <Hyperlink NavigateUri="http://www.thenounproject.com">Solomakhina Maria from the Noun Project</Hyperlink>
             <Run>.</Run>       
             <LineBreak />
-            <!-- https://www.deviantart.com/masterofhobbits/art/The-Mind-Flayer-713040102 -->
+            <Run>Mind Flayer hero image by </Run>
+            <Hyperlink NavigateUri="https://www.deviantart.com/masterofhobbits/art/The-Mind-Flayer-713040102">Master of Hobbits on DeviantArt</Hyperlink>
+            <Run>.</Run>       
+            <LineBreak />
         </TextBlock>
     </Grid>
 </Page>
