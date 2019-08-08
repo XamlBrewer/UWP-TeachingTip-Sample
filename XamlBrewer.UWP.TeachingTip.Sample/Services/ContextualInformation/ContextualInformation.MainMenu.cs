@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Mvvm.Services
 {
-    public static class ContextualInformation
+    public static partial class ContextualInformation
     {
         private static TeachingTip _mainMenuTeachingTip;
 
@@ -38,19 +38,31 @@ namespace Mvvm.Services
                 {
                     Source = new BitmapImage(new Uri("ms-appx:///Assets/MindFlayer.jpg"))
                 },
-                PreferredPlacement = Microsoft.UI.Xaml.Controls.TeachingTipPlacementMode.BottomRight,
+                PreferredPlacement = TeachingTipPlacementMode.BottomRight,
                 IsOpen = true,
                 BorderThickness = new Thickness(.5),
                 BorderBrush = new SolidColorBrush(Colors.DarkRed)
             };
+            _mainMenuTeachingTip.Closed += MainMenuTeachingTip_Closed;
+
             contentGrid.Children.Add(_mainMenuTeachingTip);
             var timer = new DispatcherTimer();
-            timer.Tick += Timer_Tick;
+            timer.Tick += MainMenuTimer_Tick;
             timer.Interval = TimeSpan.FromSeconds(5);
             timer.Start();
         }
 
-        private static void Timer_Tick(object sender, object e)
+        private static void MainMenuTeachingTip_Closed(TeachingTip sender, TeachingTipClosedEventArgs args)
+        {
+            if (_mainMenuTeachingTip != null)
+            {
+                _mainMenuTeachingTip.Closed -= MainMenuTeachingTip_Closed;
+            }
+
+            DisplayReplayButtonTip();
+        }
+
+        private static void MainMenuTimer_Tick(object sender, object e)
         {
             (sender as DispatcherTimer).Stop();
 
@@ -62,6 +74,7 @@ namespace Mvvm.Services
             // Close and cleanup the TeachingTip
             _mainMenuTeachingTip.IsOpen = false;
             (_mainMenuTeachingTip.Parent as Grid).Children.Remove(_mainMenuTeachingTip);
+            // _mainMenuTeachingTip.Closed -= MainMenuTeachingTip_Closed; --> too early
             _mainMenuTeachingTip = null;
         }
     }

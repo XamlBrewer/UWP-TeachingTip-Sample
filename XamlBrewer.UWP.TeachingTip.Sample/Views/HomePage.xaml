@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:controls="using:Microsoft.UI.Xaml.Controls"
       mc:Ignorable="d"
       Foreground="{StaticResource PageForegroundBrush}"
       FontFamily="Segoe UI">
@@ -33,18 +34,43 @@
               Width="48"
               Margin="0 0 20 0"
               Stretch="Uniform" />
-        <StackPanel Orientation="Horizontal"
+        <StackPanel Orientation="Vertical"
                     Grid.Row="1">
-            <Button Click="ReplayButton_Click"
-                    Margin="0 0 20 0"
-                    Padding="10 5"
-                    VerticalAlignment="Top">Replay</Button>
             <TextBlock TextWrapping="WrapWholeWords"
                        Foreground="{StaticResource PageForegroundBrush}"
                        FontSize="20"
                        Margin="0">
             <Run>This app demonstrates the WinUI TeachingTip control.</Run>
             </TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="ReplayButton"
+                        Click="ReplayButton_Click"
+                        Margin="0 20">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Redo" />
+                        <TextBlock Margin="10 0 0 0">Replay</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Click="ResetButton_Click"
+                        Margin="20">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Repair" />
+                        <TextBlock Margin="10 0 0 0">Reset</TextBlock>
+                    </StackPanel>
+                    <Button.Resources>
+                        <controls:TeachingTip x:Name="ResetButtonTeachingTip"
+                                              Title="Reset"
+                                              Subtitle="Your app was reset to factory settings."
+                                              PreferredPlacement="Right">
+                            <controls:TeachingTip.IconSource>
+                                <controls:SymbolIconSource Symbol="Repair" />
+                            </controls:TeachingTip.IconSource>
+                        </controls:TeachingTip>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+
         </StackPanel>
 
     </Grid>
