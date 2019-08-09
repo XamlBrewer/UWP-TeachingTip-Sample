@@ -45,14 +45,16 @@
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="ReplayButton"
                         Click="ReplayButton_Click"
-                        Margin="0 20">
+                        Margin="0 20"
+                        Padding="10">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Redo" />
                         <TextBlock Margin="10 0 0 0">Replay</TextBlock>
                     </StackPanel>
                 </Button>
                 <Button Click="ResetButton_Click"
-                        Margin="20">
+                        Margin="20"
+                        Padding="10">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Repair" />
                         <TextBlock Margin="10 0 0 0">Reset</TextBlock>

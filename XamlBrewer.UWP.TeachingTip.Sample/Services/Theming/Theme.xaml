@@ -15,7 +15,7 @@
                      Opacity=".1" />
     <SolidColorBrush x:Key="LighteningBrush"
                      Color="White"
-                     Opacity=".2" />
+                     Opacity=".1" />
     <SolidColorBrush x:Key="HighlightBrush"
                      Color="FireBrick" />
 
@@ -26,14 +26,18 @@
     <!-- Splitview Pane -->
     <AcrylicBrush x:Key="SplitViewInlineBackgroundBrush"
                   BackgroundSource="HostBackdrop"
-                  TintOpacity="0.6"
-                  FallbackColor="WhiteSmoke" />
+                  TintOpacity=".8"
+                  TintLuminosityOpacity=".8"
+                  TintColor="Black"
+                  FallbackColor="Black" />
     <AcrylicBrush x:Key="SplitViewOverlayBackgroundBrush"
                   BackgroundSource="Backdrop"
-                  TintOpacity="0.6"
-                  FallbackColor="WhiteSmoke" />
+                  TintOpacity=".8"
+                  TintLuminosityOpacity=".8"
+                  TintColor="Black"
+                  FallbackColor="Black" />
     <SolidColorBrush x:Key="SplitViewForegroundBrush"
-                     Color="#660000" />
+                     Color="SlateGray" />
 
     <!-- Splitview Content -->
     <Color x:Key="PageBackgroundColor">#FF003E49</Color>

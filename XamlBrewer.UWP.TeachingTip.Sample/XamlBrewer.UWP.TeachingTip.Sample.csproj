@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Background.png" />
+    <Content Include="Assets\BackgroundBackground.jpg" />
     <Content Include="Assets\FriendsDontLie.jpg" />
     <Content Include="Assets\MindFlayer.jpg" />
     <Content Include="Properties\Default.rd.xml" />

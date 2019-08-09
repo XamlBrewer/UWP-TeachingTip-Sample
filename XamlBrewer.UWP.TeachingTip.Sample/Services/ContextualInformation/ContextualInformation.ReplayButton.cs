@@ -34,7 +34,7 @@ namespace Mvvm.Services
             _replayButtonTeachingTip = new TeachingTip
             {
                 Target = replayButton,
-                Title = "Click to replay.",
+                Title = "Click to replay",
                 Subtitle = "Don't worry, you'll never see this tip again. " + Environment.NewLine + Environment.NewLine + "Promised! 🤞",
                 HeroContent = new Image
                 {

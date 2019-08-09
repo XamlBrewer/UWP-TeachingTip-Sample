@@ -53,7 +53,6 @@
     </Page.Resources>
 
     <Grid>
-
         <!-- SplitView -->
         <SplitView x:Name="ShellSplitView"
                    IsPaneOpen="False"
@@ -94,11 +93,14 @@
                 <Grid x:Name="ContentGrid"
                       Background="{StaticResource PageBackgroundBrush}">
                     <!-- Background -->
+                    <Image  Source="/Assets/BackgroundBackground.jpg"
+                            Stretch="UniformToFill" 
+                            Opacity=".075"/>
                     <Image Source="ms-appx:///Assets/background.png"
                            Stretch="Uniform"
                            VerticalAlignment="Bottom"
                            HorizontalAlignment="Center"
-                           Opacity=".5"
+                           Opacity=".6"
                            Margin="48 34" />
 
                     <!-- Logo -->
