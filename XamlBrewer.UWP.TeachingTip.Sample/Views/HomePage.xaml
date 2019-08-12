@@ -64,7 +64,7 @@
                         <xbcontrols:AutoCloseTeachingTip x:Name="ResetButtonTeachingTip"
                                                          AutoCloseInterval="3000"
                                                          Title="Reset"
-                                                         Subtitle="Your app was reset to factory settings."
+                                                         Content="Your app was reset to factory settings."
                                                          PreferredPlacement="Right">
                             <controls:TeachingTip.IconSource>
                                 <controls:SymbolIconSource Symbol="Repair" />

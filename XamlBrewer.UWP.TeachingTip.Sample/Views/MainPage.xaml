@@ -34,15 +34,15 @@
               Width="48"
               Margin="0 0 20 0"
               Stretch="Uniform" />
-        <Button x:Name="HelloButton"
+        <Button x:Name="PositioningButton"
+                Click="PositioningDemo_Clicked"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left"
-                Grid.Row="1">Hello</Button>
-        <controls:TeachingTip x:Name="TheTeachingTip"
-                              Title="Hello"
-                              Subtitle="World"
-                              IsOpen="True"
-                              Target="{x:Bind HelloButton}"
+                Margin="120"
+                Grid.Row="1">Positioning Demo</Button>
+        <controls:TeachingTip x:Name="PositioningTip"
+                              Title="Position"
+                              Target="{x:Bind PositioningButton}"
                               PreferredPlacement="LeftBottom"
                               IsLightDismissEnabled="False"
                               BorderThickness=".5"
@@ -51,7 +51,7 @@
                 <Image Source="/Assets/MindFlayer.jpg" />
             </controls:TeachingTip.HeroContent>-->
             <controls:TeachingTip.IconSource>
-                <controls:SymbolIconSource Symbol="Message" />
+                <controls:SymbolIconSource Symbol="Map" />
             </controls:TeachingTip.IconSource>
         </controls:TeachingTip>
     </Grid>

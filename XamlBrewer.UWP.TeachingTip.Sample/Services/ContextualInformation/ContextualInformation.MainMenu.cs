@@ -33,7 +33,7 @@ namespace Mvvm.Services
             {
                 Target = glyph,
                 Title = "Welcome",
-                Subtitle = "The Main page is where all the action is.",
+                Content = "The Main page is where all the action is.",
                 HeroContent = new Image
                 {
                     Source = new BitmapImage(new Uri("ms-appx:///Assets/MindFlayer.jpg"))

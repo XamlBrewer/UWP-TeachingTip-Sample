@@ -35,7 +35,7 @@ namespace Mvvm.Services
             {
                 Target = replayButton,
                 Title = "Click to replay",
-                Subtitle = "Don't worry, you'll never see this tip again. " + Environment.NewLine + Environment.NewLine + "Promised! 🤞",
+                Content = "Don't worry, you'll never see this tip again. " + Environment.NewLine + "Promised! 🤞",
                 HeroContent = new Image
                 {
                     Source = new BitmapImage(new Uri("ms-appx:///Assets/FriendsDontLie.jpg"))
