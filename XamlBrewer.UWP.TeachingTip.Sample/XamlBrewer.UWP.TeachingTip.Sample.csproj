@@ -118,6 +118,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AutoCloseTeachingTip.cs" />
     <Compile Include="Services\ContextualInformation\ContextualInformation.MainMenu.cs" />
     <Compile Include="Services\ContextualInformation\ContextualInformation.ReplayButton.cs" />
     <Compile Include="Views\MainPage.xaml.cs">

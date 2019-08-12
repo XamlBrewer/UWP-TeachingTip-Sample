@@ -4,6 +4,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+      xmlns:xbcontrols="using:XamlBrewer.UWP.Controls"
       mc:Ignorable="d"
       Foreground="{StaticResource PageForegroundBrush}"
       FontFamily="Segoe UI">
@@ -60,14 +61,15 @@
                         <TextBlock Margin="10 0 0 0">Reset</TextBlock>
                     </StackPanel>
                     <Button.Resources>
-                        <controls:TeachingTip x:Name="ResetButtonTeachingTip"
-                                              Title="Reset"
-                                              Subtitle="Your app was reset to factory settings."
-                                              PreferredPlacement="Right">
+                        <xbcontrols:AutoCloseTeachingTip x:Name="ResetButtonTeachingTip"
+                                                         AutoCloseInterval="3000"
+                                                         Title="Reset"
+                                                         Subtitle="Your app was reset to factory settings."
+                                                         PreferredPlacement="Right">
                             <controls:TeachingTip.IconSource>
                                 <controls:SymbolIconSource Symbol="Repair" />
                             </controls:TeachingTip.IconSource>
-                        </controls:TeachingTip>
+                        </xbcontrols:AutoCloseTeachingTip>
                     </Button.Resources>
                 </Button>
             </StackPanel>
