@@ -28,6 +28,17 @@ namespace XamlBrewer.Uwp.TeachingTip.Sample
 
         private async void PositioningDemo_Clicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            PositioningTip.Title = "Targeted position";
+            PositioningTip.Target = PositioningButton;
+            await MoveAround();
+
+            PositioningTip.Title = "Untargeted position";
+            PositioningTip.Target = null;
+            await MoveAround();
+        }
+
+        private async Task MoveAround()
+        {
             var positions = new List<TeachingTipPlacementMode>()
             {
                 TeachingTipPlacementMode.Top,
@@ -55,6 +66,11 @@ namespace XamlBrewer.Uwp.TeachingTip.Sample
                 PositioningTip.IsOpen = false;
                 await Task.Delay(250); // You have to overcome the animation.
             }
+        }
+
+        private void LightDismissButton_Clicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            LightDismissTip.IsOpen = true;
         }
     }
 }

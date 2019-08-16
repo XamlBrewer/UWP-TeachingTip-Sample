@@ -20,7 +20,7 @@ namespace Mvvm.Services
         {
             var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-            if (localSettings.Values["replayButtonTeachingTipDisplayed"] != null && 
+            if (localSettings.Values["replayButtonTeachingTipDisplayed"] != null &&
                 localSettings.Values["replayButtonTeachingTipDisplayed"].ToString() == "True")
             {
                 return;
@@ -29,6 +29,13 @@ namespace Mvvm.Services
             // Find the Main menu item and the Content grid.
             var frame = Navigation.Frame;
             var homePage = frame?.Content as HomePage;
+
+            if (homePage == null)
+            {
+                // We're already off the home page.
+                return;
+            }
+
             var replayButton = homePage?.FindName("ReplayButton") as Button;
 
             _replayButtonTeachingTip = new TeachingTip

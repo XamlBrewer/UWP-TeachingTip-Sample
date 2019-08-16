@@ -34,25 +34,49 @@
               Width="48"
               Margin="0 0 20 0"
               Stretch="Uniform" />
-        <Button x:Name="PositioningButton"
-                Click="PositioningDemo_Clicked"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Left"
-                Margin="120"
-                Grid.Row="1">Positioning Demo</Button>
-        <controls:TeachingTip x:Name="PositioningTip"
-                              Title="Position"
-                              Target="{x:Bind PositioningButton}"
-                              PreferredPlacement="LeftBottom"
-                              IsLightDismissEnabled="False"
-                              BorderThickness=".5"
-                              BorderBrush="{StaticResource DefaultAccentColor}">
-            <!--<controls:TeachingTip.HeroContent>
+        <Grid Grid.Row="1"
+              VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="PositioningButton"
+                    Click="PositioningDemo_Clicked"
+                    Grid.Column="1">Positioning Demo</Button>
+            <controls:TeachingTip x:Name="PositioningTip"
+                                  Title="Position"
+                                  Target="{x:Bind PositioningButton}"
+                                  PreferredPlacement="LeftBottom"
+                                  IsLightDismissEnabled="False"
+                                  BorderThickness=".5"
+                                  BorderBrush="{StaticResource DefaultAccentColor}">
+                <!--<controls:TeachingTip.HeroContent>
                 <Image Source="/Assets/MindFlayer.jpg" />
             </controls:TeachingTip.HeroContent>-->
-            <controls:TeachingTip.IconSource>
-                <controls:SymbolIconSource Symbol="Map" />
-            </controls:TeachingTip.IconSource>
-        </controls:TeachingTip>
+                <controls:TeachingTip.IconSource>
+                    <controls:SymbolIconSource Symbol="Map" />
+                </controls:TeachingTip.IconSource>
+            </controls:TeachingTip>
+
+            <Button x:Name="LightDismissButton"
+                    Click="LightDismissButton_Clicked"
+                    Content="Light Dismiss Demo"
+                    Grid.Column="2" />
+            <controls:TeachingTip x:Name="LightDismissTip"
+                                  Title="I'm light-dismiss enabled."
+                                  Subtitle="Your next click goes to the Upside Down."
+                                  PreferredPlacement="Bottom"
+                                  IsLightDismissEnabled="True"
+                                  Target="{x:Bind LightDismissButton}">
+                <controls:TeachingTip.HeroContent>
+                    <Image Source="/Assets/UpsideDown.jpg" />
+                </controls:TeachingTip.HeroContent>
+            </controls:TeachingTip>
+        </Grid>
     </Grid>
 </Page>

@@ -155,6 +155,7 @@
     <Content Include="Assets\BackgroundBackground.jpg" />
     <Content Include="Assets\FriendsDontLie.jpg" />
     <Content Include="Assets\MindFlayer.jpg" />
+    <Content Include="Assets\UpsideDown.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
