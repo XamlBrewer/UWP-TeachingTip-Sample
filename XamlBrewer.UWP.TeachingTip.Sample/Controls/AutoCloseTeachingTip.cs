@@ -25,6 +25,10 @@ namespace XamlBrewer.UWP.Controls
         private void AutoCloseTeachingTip_Loaded(object sender, RoutedEventArgs e)
         {
             _token = this.RegisterPropertyChangedCallback(IsOpenProperty, IsOpenChanged);
+            if (IsOpen)
+            {
+                Open();
+            }
         }
 
         private void AutoCloseTeachingTip_Unloaded(object sender, RoutedEventArgs e)

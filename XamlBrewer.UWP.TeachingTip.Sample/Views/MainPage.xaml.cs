@@ -1,9 +1,13 @@
 ﻿using Microsoft.UI.Xaml.Controls;
+using Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using XamlBrewer.UWP.Controls;
 
 namespace XamlBrewer.Uwp.TeachingTip.Sample
 {
@@ -14,9 +18,11 @@ namespace XamlBrewer.Uwp.TeachingTip.Sample
             this.InitializeComponent();
         }
 
+        private DelegateCommand ActionCommand => new DelegateCommand(Action_Executed);
+        private DelegateCommand CloseCommand => new DelegateCommand(Close_Executed);
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // PositioningTip.IsOpen = true;
             base.OnNavigatedTo(e);
         }
 
@@ -71,6 +77,45 @@ namespace XamlBrewer.Uwp.TeachingTip.Sample
         private void LightDismissButton_Clicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             LightDismissTip.IsOpen = true;
+        }
+
+        private void ButtonsButton_Clicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ButtonsTip.IsOpen = true;
+        }
+
+        private void Action_Executed()
+        {
+            var _actionTeachingTip = new AutoCloseTeachingTip
+            {
+                Title = "Well, eat this then.",
+                Content = "Don't worry, it will soon be over",
+                HeroContent = new Image
+                {
+                    Source = new BitmapImage(new Uri("ms-appx:///Assets/Heather.jpg"))
+                },
+                PreferredPlacement = TeachingTipPlacementMode.Right,
+                IsOpen = true
+            };
+
+            (Content as Grid).Children.Add(_actionTeachingTip);
+        }
+
+        private void Close_Executed()
+        {
+            var _closeTeachingTip = new AutoCloseTeachingTip
+            {
+                Title = "Then what are you still doing there?",
+                Content = "We are all waiting for you in the factory.",
+                HeroContent = new Image
+                {
+                    Source = new BitmapImage(new Uri("ms-appx:///Assets/BrimbornSteelworks.png"))
+                },
+                PreferredPlacement = TeachingTipPlacementMode.Right,
+                IsOpen = true
+            };
+
+            (Content as Grid).Children.Add(_closeTeachingTip);
         }
     }
 }

@@ -5,8 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+      xmlns:brewer="using:XamlBrewer.UWP.Controls"
       mc:Ignorable="d"
       Foreground="{StaticResource PageForegroundBrush}">
+    <Page.Resources>
+        <Style TargetType="controls:TeachingTip">
+            <Setter Property="BorderThickness"
+                    Value=".5" />
+            <Setter Property="BorderBrush"
+                    Value="DarkRed" />
+        </Style>
+        <Style TargetType="brewer:AutoCloseTeachingTip">
+            <Setter Property="BorderThickness"
+                    Value=".5" />
+            <Setter Property="BorderBrush"
+                    Value="DarkRed" />
+        </Style>
+    </Page.Resources>
 
     <Grid Background="Transparent"
           Padding="48 34 0 0">
@@ -56,8 +71,8 @@
                                   BorderThickness=".5"
                                   BorderBrush="{StaticResource DefaultAccentColor}">
                 <!--<controls:TeachingTip.HeroContent>
-                <Image Source="/Assets/MindFlayer.jpg" />
-            </controls:TeachingTip.HeroContent>-->
+                   <Image Source="/Assets/MindFlayer.jpg" />
+                </controls:TeachingTip.HeroContent>-->
                 <controls:TeachingTip.IconSource>
                     <controls:SymbolIconSource Symbol="Map" />
                 </controls:TeachingTip.IconSource>
@@ -77,6 +92,18 @@
                     <Image Source="/Assets/UpsideDown.jpg" />
                 </controls:TeachingTip.HeroContent>
             </controls:TeachingTip>
+
+            <Button x:Name="ButtonsButton"
+                    Click="ButtonsButton_Clicked"
+                    Content="Buttons Demo"
+                    Grid.Column="3" />
+            <controls:TeachingTip x:Name="ButtonsTip"
+                                  Target="{x:Bind ButtonsButton}"
+                                  Title="Were you already Flayed?"
+                                  CloseButtonContent="Yes"
+                                  CloseButtonCommand="{x:Bind CloseCommand}"
+                                  ActionButtonContent="Not sure"
+                                  ActionButtonCommand="{x:Bind ActionCommand}" />
         </Grid>
     </Grid>
 </Page>
