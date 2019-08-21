@@ -53,10 +53,10 @@
               VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
@@ -104,6 +104,34 @@
                                   CloseButtonCommand="{x:Bind CloseCommand}"
                                   ActionButtonContent="Not sure"
                                   ActionButtonCommand="{x:Bind ActionCommand}" />
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Grid.Column="4">
+                <TextBox x:Name="WizardField"
+                         Header="Favorite Reading" />
+                <Button x:Name="WizardButton"
+                        Click="WizardButton_Clicked"
+                        BorderThickness="0"
+                        Background="Transparent"
+                        CornerRadius="14"
+                        Margin="4 0 0 0">
+                    <SymbolIcon Symbol="More" />
+                </Button>
+                <controls:TeachingTip x:Name="WizardTip"
+                                      Target="{x:Bind WizardField}"
+                                      Title="Here are some suggestions:"
+                                      IsOpen="False"
+                                      ActionButtonContent="This"
+                                      ActionButtonClick="WizardTip_ActionButtonClick"
+                                      CloseButtonContent="No, thanks">
+                    <ListBox x:Name="WizardList">
+                        <TextBlock Text="The Hawkins Post" />
+                        <TextBlock Text="Hopper's Letter to Eleven" />
+                        <TextBlock Text="A string of Christmas Lights" />
+                        <TextBlock Text="The Scoop Ahoy menu" />
+                    </ListBox>
+                </controls:TeachingTip>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

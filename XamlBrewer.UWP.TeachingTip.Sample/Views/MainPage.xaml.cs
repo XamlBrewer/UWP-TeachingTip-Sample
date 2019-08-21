@@ -89,7 +89,7 @@ namespace XamlBrewer.Uwp.TeachingTip.Sample
             var _actionTeachingTip = new AutoCloseTeachingTip
             {
                 Title = "Well, eat this then.",
-                Content = "Don't worry, it will soon be over",
+                Content = "Don't worry, you will soon feel better.",
                 HeroContent = new Image
                 {
                     Source = new BitmapImage(new Uri("ms-appx:///Assets/Heather.jpg"))
@@ -116,6 +116,22 @@ namespace XamlBrewer.Uwp.TeachingTip.Sample
             };
 
             (Content as Grid).Children.Add(_closeTeachingTip);
+        }
+
+        private void WizardButton_Clicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            WizardList.SelectedIndex = 0;
+            WizardTip.IsOpen = true;
+        }
+
+        private void WizardTip_ActionButtonClick(Microsoft.UI.Xaml.Controls.TeachingTip sender, object args)
+        {
+            if (WizardList.SelectedIndex > -1)
+            {
+                WizardField.Text = (WizardList.SelectedItem as TextBlock).Text;
+            }
+
+            WizardTip.IsOpen = false;
         }
     }
 }
