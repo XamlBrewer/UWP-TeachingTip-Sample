@@ -2,9 +2,12 @@
 using Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using XamlBrewer.UWP.Controls;
@@ -21,14 +24,20 @@ namespace XamlBrewer.Uwp.TeachingTip.Sample
         private DelegateCommand ActionCommand => new DelegateCommand(Action_Executed);
         private DelegateCommand CloseCommand => new DelegateCommand(Close_Executed);
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-        }
-
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
+            var openPopups = VisualTreeHelper.GetOpenPopups(Window.Current);
+            foreach (var popup in openPopups)
+            {
+                popup.IsOpen = false;
+            }
+
+            // Alternative:
+            // VisualTreeHelper.GetOpenPopups(Window.Current).ToList().ForEach(p => p.IsOpen = false);
+
+            // This tip continuously flipflops, so needs its own call.
             PositioningTip.IsOpen = false;
+
             base.OnNavigatingFrom(e);
         }
 

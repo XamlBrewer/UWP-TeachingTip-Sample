@@ -1,6 +1,9 @@
 ﻿using Mvvm.Services;
 using Windows.Storage;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
 namespace XamlBrewer.Uwp.TeachingTip.Sample
 {
@@ -9,6 +12,17 @@ namespace XamlBrewer.Uwp.TeachingTip.Sample
         public HomePage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            var openPopups = VisualTreeHelper.GetOpenPopups(Window.Current);
+            foreach (var popup in openPopups)
+            {
+                popup.IsOpen = false;
+            }
+
+            base.OnNavigatingFrom(e);
         }
 
         /// <summary>
